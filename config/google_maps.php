@@ -1,7 +1,8 @@
 <?php
     return [
-        'google_maps_api_token' => 'GOOGLE_MAPS_API_TOKEN',
-        'google_maps_api_endpoint' => 'https://maps.googleapis.com/maps/api/',
+        'api_token' => 'GOOGLE_MAPS_API_TOKEN',
+        'api_endpoint' => 'https://maps.googleapis.com/maps/api/',
+        'locale' => \Illuminate\Support\Facades\App::getLocale(),
         'countries' => [
             'table_name' => 'NAME_OF_THE_TABLE_WITH_COUNTRIES',
             'fields' => [
