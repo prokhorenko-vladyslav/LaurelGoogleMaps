@@ -1,0 +1,13 @@
+{
+    "name": "laurel/google-maps",
+    "description": "Database filling via GoogleMaps Places API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Prokhorenko Vladyslav",
+            "email": "random.person.1907@gmail.com"
+        }
+    ],
+    "require": {}
+}
