@@ -2,9 +2,9 @@
     return [
         'api_token' => 'GOOGLE_MAPS_API_TOKEN',
         'api_endpoint' => 'https://maps.googleapis.com/maps/api/',
-        'locale' => \Illuminate\Support\Facades\App::getLocale(),
+        'save_predictions' => true,
         'countries' => [
-            'table_name' => 'NAME_OF_THE_TABLE_WITH_COUNTRIES',
+            'model' => 'COUNTRIES_MODEL',
             'fields' => [
                 'google_id' => '',
                 'name' => '',
@@ -12,7 +12,7 @@
             ]
         ],
         'regions' => [
-            'table_name' => 'NAME_OF_THE_TABLE_WITH_REGIONS',
+            'model' => 'REGIONS_MODEL',
             'fields' => [
                 'google_id' => '',
                 'name' => '',
@@ -20,7 +20,7 @@
             ]
         ],
         'cities' => [
-            'table_name' => 'NAME_OF_THE_TABLE_WITH_CITIES',
+            'model' => 'CITIES_MODEL',
             'fields' => [
                 'google_id' => '',
                 'name' => '',
@@ -28,7 +28,7 @@
             ]
         ],
         'postal_codes' => [
-            'table_name' => 'NAME_OF_THE_TABLE_WITH_POSTAL_CODES',
+            'model' => 'POST_CODES_MODEL',
             'fields' => [
                 'google_id' => '',
                 'name' => '',
