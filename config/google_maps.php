@@ -17,6 +17,9 @@
                 'google_id' => '',
                 'name' => '',
                 'slug' => ''
+            ],
+            'relations' => [
+                'country_relation_method' => 'country'
             ]
         ],
         'cities' => [
@@ -25,6 +28,10 @@
                 'google_id' => '',
                 'name' => '',
                 'slug' => ''
+            ],
+            'relations' => [
+                'country_relation_method' => 'country',
+                'region_relation_method' => 'region'
             ]
         ],
         'postal_codes' => [
@@ -33,6 +40,9 @@
                 'google_id' => '',
                 'name' => '',
                 'slug' => ''
+            ],
+            'relations' => [
+                'city_relation_method' => 'city',
             ]
         ],
     ];
