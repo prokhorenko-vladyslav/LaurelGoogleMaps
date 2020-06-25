@@ -5,6 +5,12 @@ namespace Laurel\GoogleMaps\App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Laurel\GoogleMaps\GoogleMaps;
 
+/**
+ * GoogleMaps service provider
+ *
+ * Class GoogleMapsServiceProvider
+ * @package Laurel\GoogleMaps\App\Providers
+ */
 class GoogleMapsServiceProvider extends ServiceProvider
 {
     /**
