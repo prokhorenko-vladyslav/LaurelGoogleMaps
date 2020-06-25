@@ -93,6 +93,13 @@ class GoogleMaps
     protected function __construct()
     {
         $this->savePredictions = (bool)config('laurel.google_maps.save_predictions');
+    }
+
+    /**
+     * Sets models using config files
+     */
+    protected function setModels()
+    {
         $this->setCountryModelClass(config('laurel.google_maps.countries.model'));
         $this->setRegionModelClass(config('laurel.google_maps.regions.model'));
         $this->setCityModelClass(config('laurel.google_maps.cities.model'));
@@ -246,13 +253,11 @@ class GoogleMaps
      */
     public function autocomplete(string $searchQuery)
     {
+        $this->setModels();
         $response = $this->fetchPredictions($searchQuery);
 
         if (!empty($response['predictions']) && !empty($response['status']) && $response['status'] === "OK") {
-            if ($this->doPredictionsSave()) {
-                return $this->savePredictionsInDatabase($response['predictions']);
-            }
-            return $response['predictions'];
+            return $this->savePredictionsInDatabase($response['predictions']);
         } else {
             return [];
         }
@@ -489,7 +494,7 @@ class GoogleMaps
      */
     protected function saveCountryModel()
     {
-        if (!empty($this->countryModel)) {
+        if (!empty($this->countryModel) && $this->doPredictionsSave()) {
             $this->countryModel->saveOrFail();
         }
     }
@@ -505,7 +510,9 @@ class GoogleMaps
                 $this->regionModel->$countryRelationMethod()->associate($this->countryModel);
             }
 
-            $this->regionModel->saveOrFail();
+            if ($this->doPredictionsSave()) {
+                $this->regionModel->saveOrFail();
+            }
         }
     }
 
@@ -525,7 +532,9 @@ class GoogleMaps
                 $this->cityModel->$regionsRelationMethod()->associate($this->regionModel);
             }
 
-            $this->cityModel->saveOrFail();
+            if ($this->doPredictionsSave()) {
+                $this->cityModel->saveOrFail();
+            }
         }
     }
 
@@ -540,7 +549,9 @@ class GoogleMaps
                 $this->postalCodeModel->$cityRelationMethod()->associate($this->cityModel);
             }
 
-            $this->postalCodeModel->saveOrFail();
+            if ($this->doPredictionsSave()) {
+                $this->postalCodeModel->saveOrFail();
+            }
         }
     }
 }
