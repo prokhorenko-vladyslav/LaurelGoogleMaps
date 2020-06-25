@@ -1,6 +1,6 @@
 {
     "name": "laurel/google-maps",
-    "description": "Database filling via GoogleMaps Places API",
+    "description": "Database filling and place searching via GoogleMaps Places API",
     "type": "library",
     "license": "MIT",
     "authors": [
