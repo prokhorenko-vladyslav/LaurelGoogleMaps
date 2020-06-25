@@ -3,11 +3,21 @@
     "description": "Database filling and place searching via GoogleMaps Places API",
     "type": "library",
     "license": "MIT",
+    "minimum-stability": "stable",
     "authors": [
         {
             "name": "Prokhorenko Vladyslav",
             "email": "random.person.1907@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Laurel\\GoogleMaps\\": "src/",
+            "Laurel\\GoogleMaps\\App\\": "src/app"
+        }
+    },
+    "require": {
+        "php": "^7.2.5",
+        "laravel/framework": "^7.0"
+    }
 }
