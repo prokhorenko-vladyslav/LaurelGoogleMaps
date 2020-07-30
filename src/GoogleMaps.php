@@ -416,11 +416,11 @@ class GoogleMaps
     {
         $cityClass = $this->getCityModelClass();
         return $cityClass::firstOrNew([
-            config('laurel.google_maps.cities.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.cities.fields.google_id') => $prediction['place_id']
         ], [
             config('laurel.google_maps.cities.fields.name') => $prediction['structured_formatting']['main_text'],
             config('laurel.google_maps.cities.fields.slug') => Str::slug($prediction['structured_formatting']['main_text']),
-            config('laurel.google_maps.cities.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.cities.fields.google_id') => $prediction['place_id']
         ]);
     }
 
@@ -434,11 +434,11 @@ class GoogleMaps
     {
         $countryClass = $this->getCountryModelClass();
         return $countryClass::firstOrNew([
-            config('laurel.google_maps.countries.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.countries.fields.google_id') => $prediction['place_id']
         ], [
             config('laurel.google_maps.countries.fields.name') => $prediction['structured_formatting']['main_text'],
             config('laurel.google_maps.countries.fields.slug') => Str::slug($prediction['structured_formatting']['main_text']),
-            config('laurel.google_maps.countries.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.countries.fields.google_id') => $prediction['place_id']
         ]);
     }
 
@@ -452,11 +452,11 @@ class GoogleMaps
     {
         $regionClass = $this->getRegionModelClass();
         return $regionClass::firstOrNew([
-            config('laurel.google_maps.regions.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.regions.fields.google_id') => $prediction['place_id']
         ], [
             config('laurel.google_maps.regions.fields.name') => $prediction['structured_formatting']['main_text'],
             config('laurel.google_maps.regions.fields.slug') => Str::slug($prediction['structured_formatting']['main_text']),
-            config('laurel.google_maps.regions.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.regions.fields.google_id') => $prediction['place_id']
         ]);
     }
 
@@ -470,11 +470,11 @@ class GoogleMaps
     {
         $postalCodeClass = $this->getPostalCodeModelClass();
         return $postalCodeClass::firstOrNew([
-            config('laurel.google_maps.postal_codes.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.postal_codes.fields.google_id') => $prediction['place_id']
         ], [
             config('laurel.google_maps.postal_codes.fields.name') => $prediction['structured_formatting']['main_text'],
             config('laurel.google_maps.postal_codes.fields.slug') => Str::slug($prediction['structured_formatting']['main_text']),
-            config('laurel.google_maps.postal_codes.fields.google_id') => $prediction['id']
+            config('laurel.google_maps.postal_codes.fields.google_id') => $prediction['place_id']
         ]);
     }
 
